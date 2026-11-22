@@ -1,0 +1,52 @@
+# Mirrors installers from the private source repo (gyuv/worko-office) into public releases
+# of this repo, so the website's download buttons work without exposing the source.
+#
+# Setup (once): create a fine-grained PAT with "Contents: Read" on gyuv/worko-office and save it
+# in this repo as Settings → Secrets and variables → Actions → SOURCE_REPO_TOKEN.
+name: Sync releases from source
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'   # every 6 hours
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to mirror (empty = every release not mirrored yet, newest 5)
+        required: false
+  repository_dispatch:
+    types: [worko-release]   # the source repo can ping this after publishing
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE: gyuv/worko-office
+      SRC_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check secret
+        run: |
+          if [ -z "$SRC_TOKEN" ]; then echo "::error::SOURCE_REPO_TOKEN secret is missing"; exit 1; fi
+      - name: Mirror releases
+        run: |
+          set -euo pipefail
+          want="${{ inputs.tag || github.event.client_payload.tag || '' }}"
+          if [ -n "$want" ]; then tags="$want"; else
+            tags=$(GH_TOKEN="$SRC_TOKEN" gh release list -R "$SOURCE" --limit 5 --json tagName,isDraft -q '.[] | select(.isDraft|not) | .tagName')
+          fi
+          for tag in $tags; do
+            if gh release view "$tag" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              echo "✓ $tag already mirrored"; continue
+            fi
+            echo "→ mirroring $tag"
+            rm -rf dl && mkdir dl
+            GH_TOKEN="$SRC_TOKEN" gh release download "$tag" -R "$SOURCE" -D dl -p '*.exe' -p '*.dmg' -p '*.apk' -p '*.yml' -p '*.blockmap'
+            GH_TOKEN="$SRC_TOKEN" gh release view "$tag" -R "$SOURCE" --json body,name,isPrerelease > meta.json
+            jq -r .body meta.json > notes.md
+            pre=$(jq -r 'if .isPrerelease then "--prerelease" else "" end' meta.json)
+            gh release create "$tag" -R "$GITHUB_REPOSITORY" --title "$(jq -r .name meta.json)" \
+              --notes-file notes.md $pre dl/*
+          done
