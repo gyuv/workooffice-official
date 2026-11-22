@@ -1,0 +1,53 @@
+<!-- title: Product tour — Worko -->
+<!-- desc: A guided look at every Worko screen: dashboard, tasks, compliance, billing, clients, time, reports, documents, dark mode and firm admin. -->
+<section class="page-hero">
+  <span class="eyebrow reveal">Product tour</span>
+  <h1 class="split-text">Every screen, one <span class="grad">calm workspace</span>.</h1>
+  <p class="lead reveal">Sit back — the tour plays itself. Click any tab to jump, or any picture to see it full size.</p>
+</section>
+
+<section class="section tour-sec">
+  <div class="tabs reveal" role="tablist" id="tourTabs"></div>
+  <div class="tour-stage reveal">
+    <div class="window big">
+      <div class="window-bar"><i></i><i></i><i></i><span id="tourTitle">worko</span>
+        <button class="tour-play" id="tourPlay" aria-label="Pause tour"><i data-i="pause"></i></button></div>
+      <div class="tour-img-wrap"><img id="tourImg" src="assets/img/screens/02-dashboard.jpg" alt="" width="1600" height="1000"></div>
+    </div>
+    <p class="tour-caption" id="tourCaption"></p>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Gallery</span>
+    <h2 class="split-text">Light, dark and everything between.</h2>
+  </div>
+  <div class="filters reveal" id="galleryFilters">
+    <button class="active" data-f="all">All</button><button data-f="work">Work</button><button data-f="money">Money</button><button data-f="look">Look &amp; feel</button>
+  </div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Theme</span>
+    <h2 class="split-text">Drag to compare light and dark.</h2>
+    <p>8 accents, text size, density and motion — with AA contrast in every combination.</p>
+  </div>
+  <div class="compare reveal" id="compare">
+    <img src="assets/img/screens/15-dashboard-dark.jpg" alt="Dark mode" loading="lazy">
+    <div class="compare-top"><img src="assets/img/screens/02-dashboard.jpg" alt="Light mode" loading="lazy"></div>
+    <div class="compare-handle"><span></span></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Compare light and dark">
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">For firm admins</span>
+    <h2 class="split-text">Set up your firm in minutes.</h2>
+    <p>Team, roles, firm profile, billing settings, services, audit log, security and subscription. Drag or scroll sideways.</p>
+  </div>
+  <div class="admin-strip" id="adminStrip"></div>
+</section>

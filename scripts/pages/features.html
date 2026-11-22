@@ -1,0 +1,102 @@
+<!-- title: Features — Worko -->
+<!-- desc: Quick add, My day, ten modules for CA / CS firms, Android app and a keyboard-first command palette. -->
+<section class="page-hero">
+  <span class="eyebrow reveal">Features</span>
+  <h1 class="split-text">Built for the <span class="grad">daily grind</span>.</h1>
+  <p class="lead reveal">Every screen is tuned for the work a practice actually does — deadlines, documents, people and money.</p>
+  <nav class="sub-nav reveal" aria-label="On this page">
+    <a href="#quick-add">Quick add</a><a href="#my-day">My day</a><a href="#modules">Modules</a><a href="#mobile">Mobile</a><a href="#palette">Command palette</a>
+  </nav>
+</section>
+
+<section id="quick-add" class="section">
+  <div class="split">
+    <div class="qa-demo reveal">
+      <span class="eyebrow">Quick add</span>
+      <h2 class="split-text">Type it the way you speak.</h2>
+      <p>Press <kbd>N</kbd> anywhere and write one line. Worko picks out the client, date, priority and person as live chips. Try it:</p>
+      <div class="qa-box">
+        <span class="qa-plus">+</span>
+        <div class="qa-input" id="qaInput" contenteditable="true" spellcheck="false" aria-label="Try quick add"></div>
+        <kbd>Enter</kbd>
+      </div>
+      <div class="qa-chips" id="qaChips"></div>
+      <div class="qa-try">
+        <span>Try:</span>
+        <button data-qa="File GSTR-3B #acme tomorrow !! @ravi">GSTR-3B</button>
+        <button data-qa="TDS return #globex fri !!! @me">TDS</button>
+        <button data-qa="Audit sign-off #initech in 3 days ! @priya">Audit</button>
+      </div>
+      <table class="legend">
+        <tr><td><code>today</code> <code>tomorrow</code> <code>fri</code> <code>15/11</code> <code>in 3 days</code></td><td>due date</td></tr>
+        <tr><td><code>#acme</code></td><td>client</td></tr>
+        <tr><td><code>@ravi</code> · <code>@me</code></td><td>assignee</td></tr>
+        <tr><td><code>!</code> <code>!!</code> <code>!!!</code></td><td>high · high · urgent</td></tr>
+      </table>
+    </div>
+    <figure class="shot reveal" data-tilt><img src="assets/img/screens/03-quick-add.jpg" alt="Quick add with live chips" loading="lazy" width="1600" height="1000"></figure>
+  </div>
+</section>
+
+<section id="my-day" class="section tint">
+  <div class="split reverse">
+    <div class="reveal">
+      <span class="eyebrow">My day</span>
+      <h2 class="split-text">One tap to finish.</h2>
+      <p>The top of the dashboard shows only your work — overdue, today and the coming week.</p>
+      <ul class="ticks" id="myDay">
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="check"></i><b>Tick</b> to finish — the row strikes through and slides away</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="moon"></i><b>Moon</b> to move it to tomorrow</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="undo"></i><b>Undo</b> from the toast if you slipped</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="lock"></i>Tasks with open checklist items open the task instead</span></li>
+      </ul>
+      <p class="muted">Same card on Android, and it works <b>offline</b>. Go on — tick one.</p>
+    </div>
+    <figure class="shot reveal" data-tilt><img src="assets/img/screens/04-my-day.jpg" alt="My day card" loading="lazy" width="1061" height="513"></figure>
+  </div>
+</section>
+
+<section id="modules" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">What's inside</span>
+    <h2 class="split-text">Ten modules. One source of truth.</h2>
+    <p>Pick a module to see what it covers.</p>
+  </div>
+  <div class="mod-explorer reveal">
+    <div class="mod-list" id="modList" role="tablist"></div>
+    <div class="mod-panel" id="modPanel" aria-live="polite"></div>
+  </div>
+  <div class="note reveal"><i class="note-ic" data-i="info"></i><span>Modules that need an outside account (payment gateway, WhatsApp/SMS, e-sign, AI, calendar sync) <b>hide themselves until that account is connected</b>.</span></div>
+</section>
+
+<section id="mobile" class="section tint">
+  <div class="split">
+    <div class="reveal">
+      <span class="eyebrow">Android</span>
+      <h2 class="split-text">Your practice, in your pocket.</h2>
+      <p>The Android app has staff and client-portal modes, quick add, My day and offline reminders.</p>
+      <ul class="feat-list">
+        <li>Local store + outbox — edits merge by field-level versions</li>
+        <li>Notification quiet hours and offline reminders</li>
+        <li>Client-portal mode: clients upload, answer and pay</li>
+      </ul>
+    </div>
+    <div class="phones reveal">
+      <div class="phone p1" data-parallax="0.06"><img src="assets/img/screens/16-phone-home.jpg" alt="Phone home" loading="lazy" width="780" height="1688"></div>
+      <div class="phone p2" data-parallax="-0.06"><img src="assets/img/screens/17-phone-quick-add.jpg" alt="Phone quick add" loading="lazy" width="780" height="1688"></div>
+    </div>
+  </div>
+</section>
+
+<section id="palette" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Command palette</span>
+    <h2 class="split-text">Keyboard-first, everywhere.</h2>
+    <p>Press <kbd>Ctrl</kbd> <kbd>K</kbd> to jump to any client, task or setting.</p>
+  </div>
+  <div class="kbd-demo reveal" id="kbdDemo">
+    <div class="kbd-box"><i data-i="spark"></i><span id="kbdText"></span><span class="caret"></span></div>
+    <ul id="kbdResults"></ul>
+  </div>
+  <figure class="shot wide reveal" data-tilt><img src="assets/img/screens/14-command-palette.jpg" alt="Command palette" loading="lazy" width="1600" height="1000"></figure>
+</section>

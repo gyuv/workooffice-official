@@ -2,6 +2,9 @@
 
 Light, interactive product site for [Worko](https://github.com/gyuv/worko-office): feature tour, live quick-add demo, screenshots, modules, architecture and **downloads that always point at the latest release**.
 
+## Pages
+`index` · `features` · `tour` · `platform` · `download` · `guides`. Page bodies live in `scripts/pages/`; the shared header/footer is in `scripts/build-pages.py`. After editing, run `python3 scripts/build-pages.py` and commit the generated `*.html`.
+
 ## How downloads work
 `assets/js/main.js` reads the GitHub Releases API and picks the newest `.exe`, `.dmg` (arm64 / Intel) and `.apk`:
 

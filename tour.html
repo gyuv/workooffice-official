@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product tour — Worko</title>
+<meta name="description" content="A guided look at every Worko screen: dashboard, tasks, compliance, billing, clients, time, reports, documents, dark mode and firm admin.">
+<link rel="icon" href="assets/img/icon.png">
+<meta property="og:title" content="Product tour — Worko">
+<meta property="og:description" content="A guided look at every Worko screen: dashboard, tasks, compliance, billing, clients, time, reports, documents, dark mode and firm admin.">
+<meta property="og:image" content="assets/img/screens/02-dashboard.jpg">
+<meta name="view-transition" content="same-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="tour">
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><b></b><b></b><b></b></div>
+<canvas id="grid-bg" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><img src="assets/img/icon.png" alt="" width="30" height="30"><span>Worko</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="tour.html" class="active" aria-current="page">Tour</a>
+    <a href="platform.html">Platform</a>
+    <a href="guides.html">Guides</a>
+  </nav>
+  <a class="btn btn-primary btn-sm magnetic" href="download.html"><i data-i="download"></i>Download</a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</header>
+
+<main id="top" class="page-main">
+<section class="page-hero">
+  <span class="eyebrow reveal">Product tour</span>
+  <h1 class="split-text">Every screen, one <span class="grad">calm workspace</span>.</h1>
+  <p class="lead reveal">Sit back — the tour plays itself. Click any tab to jump, or any picture to see it full size.</p>
+</section>
+
+<section class="section tour-sec">
+  <div class="tabs reveal" role="tablist" id="tourTabs"></div>
+  <div class="tour-stage reveal">
+    <div class="window big">
+      <div class="window-bar"><i></i><i></i><i></i><span id="tourTitle">worko</span>
+        <button class="tour-play" id="tourPlay" aria-label="Pause tour"><i data-i="pause"></i></button></div>
+      <div class="tour-img-wrap"><img id="tourImg" src="assets/img/screens/02-dashboard.jpg" alt="" width="1600" height="1000"></div>
+    </div>
+    <p class="tour-caption" id="tourCaption"></p>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Gallery</span>
+    <h2 class="split-text">Light, dark and everything between.</h2>
+  </div>
+  <div class="filters reveal" id="galleryFilters">
+    <button class="active" data-f="all">All</button><button data-f="work">Work</button><button data-f="money">Money</button><button data-f="look">Look &amp; feel</button>
+  </div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Theme</span>
+    <h2 class="split-text">Drag to compare light and dark.</h2>
+    <p>8 accents, text size, density and motion — with AA contrast in every combination.</p>
+  </div>
+  <div class="compare reveal" id="compare">
+    <img src="assets/img/screens/15-dashboard-dark.jpg" alt="Dark mode" loading="lazy">
+    <div class="compare-top"><img src="assets/img/screens/02-dashboard.jpg" alt="Light mode" loading="lazy"></div>
+    <div class="compare-handle"><span></span></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Compare light and dark">
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">For firm admins</span>
+    <h2 class="split-text">Set up your firm in minutes.</h2>
+    <p>Team, roles, firm profile, billing settings, services, audit log, security and subscription. Drag or scroll sideways.</p>
+  </div>
+  <div class="admin-strip" id="adminStrip"></div>
+</section>
+</main>
+
+<section class="cta-band">
+  <div class="cta-inner reveal">
+    <h2>Ready when your firm is.</h2>
+    <p>Free to install on Windows, macOS and Android — or open it in your browser.</p>
+    <div class="hero-cta center">
+      <a class="btn btn-primary magnetic" href="download.html"><i data-i="download"></i>Download Worko</a>
+      <a class="btn btn-ghost magnetic" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/img/icon.png" alt="" width="24" height="24"><span>Worko</span></a>
+      <p>Practice and office management for Indian CA / CS firms.</p>
+    </div>
+    <div><h5>Product</h5><a href="features.html">Features</a><a href="tour.html">Tour</a><a href="platform.html">Platform</a></div>
+    <div><h5>Get it</h5><a href="download.html">Download</a><a href="https://worko-office.vercel.app" target="_blank" rel="noopener">Web app</a><a href="download.html#releases">Release history</a></div>
+    <div><h5>Help</h5><a href="guides.html">Guides</a><a href="guides.html#faq">FAQ</a><a href="assets/Worko-User-Guide.pdf" target="_blank">User guide PDF</a></div>
+  </div>
+  <p class="foot-note">Made for Indian practices · Money in paise · Dates in IST · Your data, your firm.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><button aria-label="Close">×</button><img alt=""></div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

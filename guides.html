@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides & FAQ — Worko</title>
+<meta name="description" content="User guide and firm admin guide for Worko, plus answers to common questions about installing, offline use, security and pricing.">
+<link rel="icon" href="assets/img/icon.png">
+<meta property="og:title" content="Guides & FAQ — Worko">
+<meta property="og:description" content="User guide and firm admin guide for Worko, plus answers to common questions about installing, offline use, security and pricing.">
+<meta property="og:image" content="assets/img/screens/02-dashboard.jpg">
+<meta name="view-transition" content="same-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="guides">
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><b></b><b></b><b></b></div>
+<canvas id="grid-bg" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="index.html"><img src="assets/img/icon.png" alt="" width="30" height="30"><span>Worko</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="tour.html">Tour</a>
+    <a href="platform.html">Platform</a>
+    <a href="guides.html" class="active" aria-current="page">Guides</a>
+  </nav>
+  <a class="btn btn-primary btn-sm magnetic" href="download.html"><i data-i="download"></i>Download</a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</header>
+
+<main id="top" class="page-main">
+<section class="page-hero">
+  <span class="eyebrow reveal">Guides</span>
+  <h1 class="split-text">Read before you <span class="grad">roll out</span>.</h1>
+  <p class="lead reveal">Two short guides cover everything your staff and your admin need on day one.</p>
+</section>
+
+<section class="section">
+  <div class="doc-cards">
+    <a class="doc reveal" href="assets/Worko-User-Guide.pdf" target="_blank">
+      <div class="doc-cover"><img src="assets/img/screens/02-dashboard.jpg" alt="" loading="lazy"></div>
+      <span class="ic-tile" data-i="book"></span><h4>User guide</h4><p>Everything a staff member needs, day one. PDF</p><span class="more">Open PDF →</span>
+    </a>
+    <a class="doc reveal" href="assets/Worko-Firm-Admin-Guide.pdf" target="_blank">
+      <div class="doc-cover"><img src="assets/img/admin/02-team.jpg" alt="" loading="lazy"></div>
+      <span class="ic-tile" data-i="shield"></span><h4>Firm admin guide</h4><p>Team, roles, services, billing and security. PDF</p><span class="more">Open PDF →</span>
+    </a>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Rollout</span>
+    <h2 class="split-text">Your first week with Worko.</h2>
+  </div>
+  <ol class="roadmap">
+    <li class="reveal"><b>Day 1</b><h4>Firm profile &amp; team</h4><p>Add your firm details, invite staff and assign roles.</p></li>
+    <li class="reveal"><b>Day 2</b><h4>Clients</h4><p>Import clients; PAN and GSTIN are checked as you go.</p></li>
+    <li class="reveal"><b>Day 3</b><h4>Services &amp; compliance</h4><p>Pick services — tasks are created from compliance rule packs.</p></li>
+    <li class="reveal"><b>Day 4</b><h4>Billing</h4><p>Set GST details and invoice series; connect Tally export.</p></li>
+    <li class="reveal"><b>Day 5</b><h4>Client portal</h4><p>Invite clients to upload documents, answer queries and pay.</p></li>
+  </ol>
+</section>
+
+<section id="faq" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="split-text">Questions, answered.</h2>
+  </div>
+  <div class="faq">
+    <details class="reveal"><summary>Does Worko work without internet?</summary><p>Yes. The desktop and Android apps keep a local store and an outbox. You can keep working; changes sync the moment you are back online.</p></details>
+    <details class="reveal"><summary>How do updates work?</summary><p>Every app checks for a new version when it starts. Windows updates with one click, macOS opens the new installer, Android asks once to install, and the web app offers a reload. Check any time in <b>Appearance → About &amp; updates</b>.</p></details>
+    <details class="reveal"><summary>Why does Windows or macOS warn me when installing?</summary><p>The builds are not code-signed yet. On Windows choose <b>More info → Run anyway</b>; on macOS <b>right-click → Open</b> the first time.</p></details>
+    <details class="reveal"><summary>Is our firm's data separate from other firms?</summary><p>Yes. Postgres row-level security isolates each firm, secrets are encrypted per tenant, and every change is written to a hash-chained audit log.</p></details>
+    <details class="reveal"><summary>Is AI used on our data?</summary><p>AI is off by default. When switched on it redacts personal data, and every suggestion needs a human to accept it.</p></details>
+    <details class="reveal"><summary>Why can't I see WhatsApp, payments or e-sign?</summary><p>Modules that need an outside account hide themselves until that account is connected by your administrator.</p></details>
+  </div>
+</section>
+</main>
+
+<section class="cta-band">
+  <div class="cta-inner reveal">
+    <h2>Ready when your firm is.</h2>
+    <p>Free to install on Windows, macOS and Android — or open it in your browser.</p>
+    <div class="hero-cta center">
+      <a class="btn btn-primary magnetic" href="download.html"><i data-i="download"></i>Download Worko</a>
+      <a class="btn btn-ghost magnetic" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/img/icon.png" alt="" width="24" height="24"><span>Worko</span></a>
+      <p>Practice and office management for Indian CA / CS firms.</p>
+    </div>
+    <div><h5>Product</h5><a href="features.html">Features</a><a href="tour.html">Tour</a><a href="platform.html">Platform</a></div>
+    <div><h5>Get it</h5><a href="download.html">Download</a><a href="https://worko-office.vercel.app" target="_blank" rel="noopener">Web app</a><a href="download.html#releases">Release history</a></div>
+    <div><h5>Help</h5><a href="guides.html">Guides</a><a href="guides.html#faq">FAQ</a><a href="assets/Worko-User-Guide.pdf" target="_blank">User guide PDF</a></div>
+  </div>
+  <p class="foot-note">Made for Indian practices · Money in paise · Dates in IST · Your data, your firm.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><button aria-label="Close">×</button><img alt=""></div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
