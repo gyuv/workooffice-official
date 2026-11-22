@@ -1,0 +1,49 @@
+<!-- title: Guides & FAQ — Worko -->
+<!-- desc: User guide and firm admin guide for Worko, plus answers to common questions about installing, offline use, security and pricing. -->
+<section class="page-hero">
+  <span class="eyebrow reveal">Guides</span>
+  <h1 class="split-text">Read before you <span class="grad">roll out</span>.</h1>
+  <p class="lead reveal">Two short guides cover everything your staff and your admin need on day one.</p>
+</section>
+
+<section class="section">
+  <div class="doc-cards">
+    <a class="doc reveal" href="assets/Worko-User-Guide.pdf" target="_blank">
+      <div class="doc-cover"><img src="assets/img/screens/02-dashboard.jpg" alt="" loading="lazy"></div>
+      <span class="ic-tile" data-i="book"></span><h4>User guide</h4><p>Everything a staff member needs, day one. PDF</p><span class="more">Open PDF →</span>
+    </a>
+    <a class="doc reveal" href="assets/Worko-Firm-Admin-Guide.pdf" target="_blank">
+      <div class="doc-cover"><img src="assets/img/admin/02-team.jpg" alt="" loading="lazy"></div>
+      <span class="ic-tile" data-i="shield"></span><h4>Firm admin guide</h4><p>Team, roles, services, billing and security. PDF</p><span class="more">Open PDF →</span>
+    </a>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Rollout</span>
+    <h2 class="split-text">Your first week with Worko.</h2>
+  </div>
+  <ol class="roadmap">
+    <li class="reveal"><b>Day 1</b><h4>Firm profile &amp; team</h4><p>Add your firm details, invite staff and assign roles.</p></li>
+    <li class="reveal"><b>Day 2</b><h4>Clients</h4><p>Import clients; PAN and GSTIN are checked as you go.</p></li>
+    <li class="reveal"><b>Day 3</b><h4>Services &amp; compliance</h4><p>Pick services — tasks are created from compliance rule packs.</p></li>
+    <li class="reveal"><b>Day 4</b><h4>Billing</h4><p>Set GST details and invoice series; connect Tally export.</p></li>
+    <li class="reveal"><b>Day 5</b><h4>Client portal</h4><p>Invite clients to upload documents, answer queries and pay.</p></li>
+  </ol>
+</section>
+
+<section id="faq" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="split-text">Questions, answered.</h2>
+  </div>
+  <div class="faq">
+    <details class="reveal"><summary>Does Worko work without internet?</summary><p>Yes. The desktop and Android apps keep a local store and an outbox. You can keep working; changes sync the moment you are back online.</p></details>
+    <details class="reveal"><summary>How do updates work?</summary><p>Every app checks for a new version when it starts. Windows updates with one click, macOS opens the new installer, Android asks once to install, and the web app offers a reload. Check any time in <b>Appearance → About &amp; updates</b>.</p></details>
+    <details class="reveal"><summary>Why does Windows or macOS warn me when installing?</summary><p>The builds are not code-signed yet. On Windows choose <b>More info → Run anyway</b>; on macOS <b>right-click → Open</b> the first time.</p></details>
+    <details class="reveal"><summary>Is our firm's data separate from other firms?</summary><p>Yes. Postgres row-level security isolates each firm, secrets are encrypted per tenant, and every change is written to a hash-chained audit log.</p></details>
+    <details class="reveal"><summary>Is AI used on our data?</summary><p>AI is off by default. When switched on it redacts personal data, and every suggestion needs a human to accept it.</p></details>
+    <details class="reveal"><summary>Why can't I see WhatsApp, payments or e-sign?</summary><p>Modules that need an outside account hide themselves until that account is connected by your administrator.</p></details>
+  </div>
+</section>

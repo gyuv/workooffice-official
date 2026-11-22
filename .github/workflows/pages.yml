@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Stage site
-        run: mkdir _site && cp -r index.html assets _site/ && touch _site/.nojekyll
+        run: mkdir _site && cp -r *.html assets _site/ && touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

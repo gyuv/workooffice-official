@@ -1,0 +1,78 @@
+<!-- title: Platform & security — Worko -->
+<!-- desc: How Worko is built: one NestJS API, Postgres row-level security, offline-first sync, hash-chained audit and per-tenant encryption. -->
+<section class="page-hero">
+  <span class="eyebrow reveal">Platform</span>
+  <h1 class="split-text">Engineered like a <span class="grad">ledger</span>.</h1>
+  <p class="lead reveal">One source of truth, every change audited, and apps that keep working when the internet doesn't.</p>
+</section>
+
+<section id="sync" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Offline-first sync</span>
+    <h2 class="split-text">Work offline. Sync in seconds.</h2>
+    <p>Each app writes to a local store and an outbox. When you're back online, changes flow to the API and merge field by field.</p>
+  </div>
+  <div class="sync-demo reveal" id="syncDemo">
+    <svg viewBox="0 0 900 360" class="sync-svg" role="img" aria-label="Devices syncing through the API to Postgres">
+      <defs>
+        <linearGradient id="lnk" x1="0" x2="1"><stop offset="0" stop-color="#16a34a"/><stop offset="1" stop-color="#0f766e"/></linearGradient>
+      </defs>
+      <g class="links" fill="none" stroke="url(#lnk)" stroke-width="2">
+        <path id="l1" d="M170 70 C 330 70, 330 180, 450 180"/>
+        <path id="l2" d="M170 180 L 450 180"/>
+        <path id="l3" d="M170 290 C 330 290, 330 180, 450 180"/>
+        <path id="l4" d="M590 180 L 730 180"/>
+      </g>
+      <g class="packets">
+        <circle r="5"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#l1"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#l2"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#l3"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#l4"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite"><mpath href="#l4"/></animateMotion></circle>
+      </g>
+      <g class="nodes">
+        <g transform="translate(40 40)"><rect width="130" height="60" rx="14"/><text x="65" y="27">Web</text><text class="sub" x="65" y="45">browser</text></g>
+        <g transform="translate(40 150)"><rect width="130" height="60" rx="14"/><text x="65" y="27">Desktop</text><text class="sub" x="65" y="45">store + outbox</text></g>
+        <g transform="translate(40 260)"><rect width="130" height="60" rx="14"/><text x="65" y="27">Android</text><text class="sub" x="65" y="45">store + outbox</text></g>
+        <g transform="translate(450 140)" class="core"><rect width="140" height="80" rx="16"/><text x="70" y="36">NestJS API</text><text class="sub" x="70" y="56">audit · rules</text></g>
+        <g transform="translate(730 140)"><rect width="140" height="80" rx="16"/><text x="70" y="36">Postgres</text><text class="sub" x="70" y="56">row-level security</text></g>
+      </g>
+    </svg>
+    <div class="sync-controls">
+      <button class="btn btn-ghost btn-sm" id="offlineToggle"><i data-i="globe"></i><span>Go offline</span></button>
+      <span class="sync-status" id="syncStatus"><span class="c-dot"></span>Online · 0 pending</span>
+    </div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Architecture</span>
+    <h2 class="split-text">The whole picture.</h2>
+  </div>
+  <figure class="arch reveal"><img src="assets/img/architecture.svg" alt="Architecture diagram" loading="lazy"></figure>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Design principles</span>
+    <h2 class="split-text">Six promises, kept in code.</h2>
+  </div>
+  <div class="principles">
+    <div class="pr reveal"><span class="ic-tile" data-i="server"></span><b>01</b><h4>One source of truth</h4><p>Every app talks to the same NestJS API; Postgres row-level security isolates each firm.</p></div>
+    <div class="pr reveal"><span class="ic-tile" data-i="globe"></span><b>02</b><h4>Offline first</h4><p>Desktop and Android keep a local store and an outbox; field-level versions merge edits safely.</p></div>
+    <div class="pr reveal"><span class="ic-tile" data-i="note"></span><b>03</b><h4>Every change audited</h4><p>In the same transaction, on a hash-chained log.</p></div>
+    <div class="pr reveal"><span class="ic-tile" data-i="receipt"></span><b>04</b><h4>Paise &amp; IST</h4><p>Statutory dates and prices come only from rule packs — never hard-coded.</p></div>
+    <div class="pr reveal"><span class="ic-tile" data-i="lock"></span><b>05</b><h4>Per-tenant secrets</h4><p>Envelope keys; reveals need step-up auth and are audited.</p></div>
+    <div class="pr reveal"><span class="ic-tile" data-i="users"></span><b>06</b><h4>Accessible</h4><p>AA contrast in every theme and accent, keyboard-first, reduced-motion honoured.</p></div>
+  </div>
+</section>
+
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">Audit trail</span>
+    <h2 class="split-text">Tamper-evident by construction.</h2>
+    <p>Each log entry carries the hash of the one before it. Change any past entry and the chain breaks.</p>
+  </div>
+  <div class="chain reveal" id="chain"></div>
+</section>
