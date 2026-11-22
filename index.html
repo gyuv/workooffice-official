@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worko — Practice management for CA / CS firms</title>
+<meta name="description" content="Worko runs a CA / CS firm end-to-end — tasks, compliance, billing, time, clients, documents and a client portal — on web, desktop and Android. Offline-first.">
+<link rel="icon" href="assets/img/icon.png">
+<meta property="og:title" content="Worko — Practice management for CA / CS firms">
+<meta property="og:image" content="assets/img/screens/02-dashboard.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<canvas id="grid-bg" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="brand" href="#top"><img src="assets/img/icon.png" alt="" width="30" height="30"><span>Worko</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#features">Features</a>
+    <a href="#tour">Tour</a>
+    <a href="#modules">Modules</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#docs">Guides</a>
+  </nav>
+  <a class="btn btn-primary btn-sm" href="#download">Download</a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="pill reveal"><span class="dot"></span> Web · Desktop · Android — one backend, offline-first</span>
+    <h1 class="reveal">Run your <span class="grad">CA / CS firm</span><br>end-to-end.</h1>
+    <p class="lead reveal">Tasks, statutory compliance, billing, time, clients, documents and a branded client portal — built for Indian practices. Keeps working offline and syncs the moment you are back.</p>
+    <div class="hero-cta reveal">
+      <a class="btn btn-primary" id="heroDownload" href="#download"><span class="os-icon"></span><span class="label">Download Worko</span></a>
+      <a class="btn btn-ghost" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser →</a>
+    </div>
+    <p class="hero-meta reveal" id="heroMeta">Free · updates itself · Windows · macOS · Android</p>
+    <ul class="stats reveal">
+      <li><b data-count="10">0</b><span>modules</span></li>
+      <li><b data-count="3">0</b><span>platforms</span></li>
+      <li><b data-count="8">0</b><span>accent themes</span></li>
+      <li><b data-count="100" data-suffix="%">0</b><span>offline-ready</span></li>
+    </ul>
+  </div>
+  <div class="hero-visual" data-tilt>
+    <div class="window">
+      <div class="window-bar"><i></i><i></i><i></i><span>worko — Dashboard</span></div>
+      <img src="assets/img/screens/02-dashboard.jpg" alt="Worko dashboard" width="1600" height="1000">
+      <div class="scanline" aria-hidden="true"></div>
+    </div>
+    <img class="float-card fc-1" src="assets/img/screens/03b-quick-add-dialog.jpg" alt="Quick add" width="688" height="205">
+    <div class="phone fc-2"><img src="assets/img/screens/16-phone-home.jpg" alt="Android home" width="780" height="1688"></div>
+    <div class="chip-float fc-3"><span class="c-dot"></span>Synced · 0 pending</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>GSTR-3B</span><span>TDS returns</span><span>UDIN gate</span><span>Tally XML export</span><span>DSC register</span><span>PAN / GSTIN checks</span><span>Client portal</span><span>Row-level security</span><span>Hash-chained audit</span><span>DPDP tooling</span><span>Money in paise</span><span>Dates in IST</span>
+  <span>GSTR-3B</span><span>TDS returns</span><span>UDIN gate</span><span>Tally XML export</span><span>DSC register</span><span>PAN / GSTIN checks</span><span>Client portal</span><span>Row-level security</span><span>Hash-chained audit</span><span>DPDP tooling</span><span>Money in paise</span><span>Dates in IST</span>
+</div></div>
+
+<!-- QUICK ADD DEMO -->
+<section id="features" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Built for the daily grind</span>
+    <h2>Type it the way you speak.</h2>
+    <p>Press <kbd>N</kbd> anywhere and write one line. Worko picks out the client, date, priority and person as live chips.</p>
+  </div>
+  <div class="split">
+    <div class="qa-demo reveal">
+      <div class="qa-box">
+        <span class="qa-plus">+</span>
+        <div class="qa-input" id="qaInput" contenteditable="true" spellcheck="false" aria-label="Try quick add"></div>
+        <kbd>Enter</kbd>
+      </div>
+      <div class="qa-chips" id="qaChips"></div>
+      <div class="qa-try">
+        <span>Try:</span>
+        <button data-qa="File GSTR-3B #acme tomorrow !! @ravi">GSTR-3B</button>
+        <button data-qa="TDS return #globex fri !!! @me">TDS</button>
+        <button data-qa="Audit sign-off #initech in 3 days ! @priya">Audit</button>
+      </div>
+      <table class="legend">
+        <tr><td><code>today</code> <code>tomorrow</code> <code>fri</code> <code>15/11</code> <code>in 3 days</code></td><td>due date</td></tr>
+        <tr><td><code>#acme</code></td><td>client</td></tr>
+        <tr><td><code>@ravi</code> · <code>@me</code></td><td>assignee</td></tr>
+        <tr><td><code>!</code> <code>!!</code> <code>!!!</code></td><td>high · high · urgent</td></tr>
+      </table>
+    </div>
+    <figure class="shot reveal" data-tilt><img src="assets/img/screens/03-quick-add.jpg" alt="Quick add with live chips" loading="lazy" width="1600" height="1000"></figure>
+  </div>
+
+  <div class="split reverse">
+    <div class="reveal">
+      <span class="eyebrow">☀️ My day</span>
+      <h3>One tap to finish.</h3>
+      <p>The top of the dashboard shows only your work — overdue, today and the coming week.</p>
+      <ul class="ticks" id="myDay">
+        <li><button class="tick" aria-label="Done"></button><span>✅ <b>Tick</b> to finish — the row strikes through and slides away</span></li>
+        <li><button class="tick" aria-label="Done"></button><span>🌙 <b>Moon</b> to move it to tomorrow</span></li>
+        <li><button class="tick" aria-label="Done"></button><span>↩️ <b>Undo</b> from the toast if you slipped</span></li>
+        <li><button class="tick" aria-label="Done"></button><span>🔒 Tasks with open checklist items open the task instead</span></li>
+      </ul>
+      <p class="muted">Same card on Android, and it works <b>offline</b>. Go on — tick one.</p>
+    </div>
+    <figure class="shot reveal" data-tilt><img src="assets/img/screens/04-my-day.jpg" alt="My day card" loading="lazy" width="1061" height="513"></figure>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section id="tour" class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">A look around</span>
+    <h2>Every screen, one calm workspace.</h2>
+  </div>
+  <div class="tabs reveal" role="tablist" id="tourTabs"></div>
+  <div class="tour-stage reveal">
+    <div class="window big">
+      <div class="window-bar"><i></i><i></i><i></i><span id="tourTitle">worko</span></div>
+      <div class="tour-img-wrap"><img id="tourImg" src="assets/img/screens/02-dashboard.jpg" alt="" width="1600" height="1000"></div>
+    </div>
+    <p class="tour-caption" id="tourCaption"></p>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- MOBILE -->
+<section class="section mobile-sec">
+  <div class="split">
+    <div class="reveal">
+      <span class="eyebrow">🤖 Android + ⌘ Command palette</span>
+      <h2>In your pocket. At your fingertips.</h2>
+      <p>The Android app has staff and client-portal modes, quick add, My day and offline reminders. On desktop, the command palette gets you anywhere with the keyboard.</p>
+      <ul class="feat-list">
+        <li>Local store + outbox — edits merge by field-level versions</li>
+        <li>Notification quiet hours and offline reminders</li>
+        <li>Keyboard-first: every action has a shortcut</li>
+      </ul>
+    </div>
+    <div class="phones reveal">
+      <div class="phone p1"><img src="assets/img/screens/16-phone-home.jpg" alt="Phone home" loading="lazy" width="780" height="1688"></div>
+      <div class="phone p2"><img src="assets/img/screens/17-phone-quick-add.jpg" alt="Phone quick add" loading="lazy" width="780" height="1688"></div>
+    </div>
+  </div>
+  <figure class="shot wide reveal" data-tilt><img src="assets/img/screens/14-command-palette.jpg" alt="Command palette" loading="lazy" width="1600" height="1000"></figure>
+</section>
+
+<!-- MODULES -->
+<section id="modules" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">What's inside</span>
+    <h2>Ten modules. One source of truth.</h2>
+  </div>
+  <div class="cards" id="modCards"></div>
+  <div class="note reveal">ℹ️ Modules that need an outside account (payment gateway, WhatsApp/SMS, e-sign, AI, calendar sync) <b>hide themselves until that account is connected</b>.</div>
+</section>
+
+<!-- ADMIN -->
+<section class="section tint">
+  <div class="section-head reveal">
+    <span class="eyebrow">🛡️ For firm admins</span>
+    <h2>Set up your firm in minutes.</h2>
+    <p>Team, roles, firm profile, billing settings, services, audit log, security and subscription.</p>
+  </div>
+  <div class="admin-strip" id="adminStrip"></div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">Architecture</span>
+    <h2>Engineered like a ledger.</h2>
+  </div>
+  <figure class="arch reveal"><img src="assets/img/architecture.svg" alt="Architecture diagram" loading="lazy"></figure>
+  <div class="principles">
+    <div class="pr reveal"><b>01</b><h4>One source of truth</h4><p>Every app talks to the same NestJS API; Postgres row-level security isolates each firm.</p></div>
+    <div class="pr reveal"><b>02</b><h4>Offline first</h4><p>Desktop and Android keep a local store and an outbox; field-level versions merge edits safely.</p></div>
+    <div class="pr reveal"><b>03</b><h4>Every change audited</h4><p>In the same transaction, on a hash-chained log.</p></div>
+    <div class="pr reveal"><b>04</b><h4>Paise &amp; IST</h4><p>Statutory dates and prices come only from rule packs — never hard-coded.</p></div>
+    <div class="pr reveal"><b>05</b><h4>Per-tenant secrets</h4><p>Envelope keys; reveals need step-up auth and are audited.</p></div>
+    <div class="pr reveal"><b>06</b><h4>Accessible</h4><p>AA contrast in every theme and accent, keyboard-first, reduced-motion honoured.</p></div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download" class="section dl-sec">
+  <div class="section-head reveal">
+    <span class="eyebrow">Download</span>
+    <h2>Install once. It updates itself.</h2>
+    <p id="relInfo" class="rel-info"><span class="spinner"></span> Fetching the latest release…</p>
+  </div>
+  <div class="dl-grid">
+    <article class="dl reveal" data-os="windows">
+      <div class="dl-ico">🪟</div><h3>Windows</h3><p>Windows 10 / 11 · 64-bit</p>
+      <div class="dl-links"><a class="btn btn-primary" data-asset="win" href="#">Worko-Setup.exe</a></div>
+      <small class="dl-size"></small>
+    </article>
+    <article class="dl reveal" data-os="mac">
+      <div class="dl-ico">🍎</div><h3>macOS</h3><p>Apple Silicon · Intel</p>
+      <div class="dl-links"><a class="btn btn-primary" data-asset="mac-arm" href="#">Apple Silicon</a><a class="btn btn-ghost" data-asset="mac-intel" href="#">Intel</a></div>
+      <small class="dl-size"></small>
+    </article>
+    <article class="dl reveal" data-os="android">
+      <div class="dl-ico">🤖</div><h3>Android</h3><p>Android 8+ · sideload</p>
+      <div class="dl-links"><a class="btn btn-primary" data-asset="apk" href="#">Worko.apk</a></div>
+      <small class="dl-size"></small>
+    </article>
+    <article class="dl reveal" data-os="web">
+      <div class="dl-ico">🌐</div><h3>Web</h3><p>Nothing to install</p>
+      <div class="dl-links"><a class="btn btn-primary" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser</a></div>
+      <small class="dl-size">Always the latest</small>
+    </article>
+  </div>
+  <details class="help reveal">
+    <summary>First-time install help</summary>
+    <dl>
+      <dt>Windows</dt><dd>Run the <code>.exe</code>. If SmartScreen appears: <b>More info → Run anyway</b> (the build is not code-signed yet).</dd>
+      <dt>macOS</dt><dd>Open the <code>.dmg</code> for your Mac (<code>arm64</code> = Apple Silicon), drag <b>Worko</b> to Applications, then <b>right-click → Open</b> the first time.</dd>
+      <dt>Android</dt><dd>Download the <code>.apk</code> on the phone, allow <b>Install unknown apps</b> for your browser, then tap the file.</dd>
+    </dl>
+  </details>
+  <p class="all-rel reveal"><a id="allReleases" href="#" target="_blank" rel="noopener">All releases &amp; release notes →</a></p>
+</section>
+
+<!-- DOCS -->
+<section id="docs" class="section tint">
+  <div class="section-head reveal"><span class="eyebrow">Guides</span><h2>Read before you roll out.</h2></div>
+  <div class="doc-cards">
+    <a class="doc reveal" href="assets/Worko-User-Guide.pdf" target="_blank"><span>📘</span><h4>User guide</h4><p>Everything a staff member needs, day one. PDF</p></a>
+    <a class="doc reveal" href="assets/Worko-Firm-Admin-Guide.pdf" target="_blank"><span>🛡️</span><h4>Firm admin guide</h4><p>Team, roles, services, billing and security. PDF</p></a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="brand"><img src="assets/img/icon.png" alt="" width="24" height="24"><span>Worko</span></div>
+  <p>Made for Indian practices · Money in paise · Dates in IST · Your data, your firm.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><button aria-label="Close">×</button><img alt=""></div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
