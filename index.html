@@ -15,6 +15,7 @@
 </head>
 <body>
 <div class="scroll-progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><b></b><b></b><b></b></div>
 <canvas id="grid-bg" aria-hidden="true"></canvas>
 
 <header class="nav">
@@ -38,7 +39,7 @@
     <h1 class="reveal">Run your <span class="grad">CA / CS firm</span><br>end-to-end.</h1>
     <p class="lead reveal">Tasks, statutory compliance, billing, time, clients, documents and a branded client portal — built for Indian practices. Keeps working offline and syncs the moment you are back.</p>
     <div class="hero-cta reveal">
-      <a class="btn btn-primary" id="heroDownload" href="#download"><span class="os-icon"></span><span class="label">Download Worko</span></a>
+      <a class="btn btn-primary" id="heroDownload" href="#download"><i class="os-icon" data-i="download"></i><span class="label">Download Worko</span></a>
       <a class="btn btn-ghost" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser →</a>
     </div>
     <p class="hero-meta reveal" id="heroMeta">Free · updates itself · Windows · macOS · Android</p>
@@ -100,14 +101,14 @@
 
   <div class="split reverse">
     <div class="reveal">
-      <span class="eyebrow">☀️ My day</span>
+      <span class="eyebrow">My day</span>
       <h3>One tap to finish.</h3>
       <p>The top of the dashboard shows only your work — overdue, today and the coming week.</p>
       <ul class="ticks" id="myDay">
-        <li><button class="tick" aria-label="Done"></button><span>✅ <b>Tick</b> to finish — the row strikes through and slides away</span></li>
-        <li><button class="tick" aria-label="Done"></button><span>🌙 <b>Moon</b> to move it to tomorrow</span></li>
-        <li><button class="tick" aria-label="Done"></button><span>↩️ <b>Undo</b> from the toast if you slipped</span></li>
-        <li><button class="tick" aria-label="Done"></button><span>🔒 Tasks with open checklist items open the task instead</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="check"></i><b>Tick</b> to finish — the row strikes through and slides away</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="moon"></i><b>Moon</b> to move it to tomorrow</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="undo"></i><b>Undo</b> from the toast if you slipped</span></li>
+        <li><button class="tick" aria-label="Done"></button><span><i class="li-ic" data-i="lock"></i>Tasks with open checklist items open the task instead</span></li>
       </ul>
       <p class="muted">Same card on Android, and it works <b>offline</b>. Go on — tick one.</p>
     </div>
@@ -137,7 +138,7 @@
 <section class="section mobile-sec">
   <div class="split">
     <div class="reveal">
-      <span class="eyebrow">🤖 Android + ⌘ Command palette</span>
+      <span class="eyebrow">Android · Command palette</span>
       <h2>In your pocket. At your fingertips.</h2>
       <p>The Android app has staff and client-portal modes, quick add, My day and offline reminders. On desktop, the command palette gets you anywhere with the keyboard.</p>
       <ul class="feat-list">
@@ -161,13 +162,13 @@
     <h2>Ten modules. One source of truth.</h2>
   </div>
   <div class="cards" id="modCards"></div>
-  <div class="note reveal">ℹ️ Modules that need an outside account (payment gateway, WhatsApp/SMS, e-sign, AI, calendar sync) <b>hide themselves until that account is connected</b>.</div>
+  <div class="note reveal"><i class="note-ic" data-i="info"></i><span>Modules that need an outside account (payment gateway, WhatsApp/SMS, e-sign, AI, calendar sync) <b>hide themselves until that account is connected</b>.</span></div>
 </section>
 
 <!-- ADMIN -->
 <section class="section tint">
   <div class="section-head reveal">
-    <span class="eyebrow">🛡️ For firm admins</span>
+    <span class="eyebrow">For firm admins</span>
     <h2>Set up your firm in minutes.</h2>
     <p>Team, roles, firm profile, billing settings, services, audit log, security and subscription.</p>
   </div>
@@ -200,22 +201,22 @@
   </div>
   <div class="dl-grid">
     <article class="dl reveal" data-os="windows">
-      <div class="dl-ico">🪟</div><h3>Windows</h3><p>Windows 10 / 11 · 64-bit</p>
+      <div class="dl-ico" data-i="monitor"></div><h3>Windows</h3><p>Windows 10 / 11 · 64-bit</p>
       <div class="dl-links"><a class="btn btn-primary" data-asset="win" href="#">Worko-Setup.exe</a></div>
       <small class="dl-size"></small>
     </article>
     <article class="dl reveal" data-os="mac">
-      <div class="dl-ico">🍎</div><h3>macOS</h3><p>Apple Silicon · Intel</p>
+      <div class="dl-ico" data-i="laptop"></div><h3>macOS</h3><p>Apple Silicon · Intel</p>
       <div class="dl-links"><a class="btn btn-primary" data-asset="mac-arm" href="#">Apple Silicon</a><a class="btn btn-ghost" data-asset="mac-intel" href="#">Intel</a></div>
       <small class="dl-size"></small>
     </article>
     <article class="dl reveal" data-os="android">
-      <div class="dl-ico">🤖</div><h3>Android</h3><p>Android 8+ · sideload</p>
+      <div class="dl-ico" data-i="phone"></div><h3>Android</h3><p>Android 8+ · sideload</p>
       <div class="dl-links"><a class="btn btn-primary" data-asset="apk" href="#">Worko.apk</a></div>
       <small class="dl-size"></small>
     </article>
     <article class="dl reveal" data-os="web">
-      <div class="dl-ico">🌐</div><h3>Web</h3><p>Nothing to install</p>
+      <div class="dl-ico" data-i="globe"></div><h3>Web</h3><p>Nothing to install</p>
       <div class="dl-links"><a class="btn btn-primary" href="https://worko-office.vercel.app" target="_blank" rel="noopener">Open in browser</a></div>
       <small class="dl-size">Always the latest</small>
     </article>
@@ -235,8 +236,8 @@
 <section id="docs" class="section tint">
   <div class="section-head reveal"><span class="eyebrow">Guides</span><h2>Read before you roll out.</h2></div>
   <div class="doc-cards">
-    <a class="doc reveal" href="assets/Worko-User-Guide.pdf" target="_blank"><span>📘</span><h4>User guide</h4><p>Everything a staff member needs, day one. PDF</p></a>
-    <a class="doc reveal" href="assets/Worko-Firm-Admin-Guide.pdf" target="_blank"><span>🛡️</span><h4>Firm admin guide</h4><p>Team, roles, services, billing and security. PDF</p></a>
+    <a class="doc reveal" href="assets/Worko-User-Guide.pdf" target="_blank"><span class="ic-tile" data-i="book"></span><h4>User guide</h4><p>Everything a staff member needs, day one. PDF</p></a>
+    <a class="doc reveal" href="assets/Worko-Firm-Admin-Guide.pdf" target="_blank"><span class="ic-tile" data-i="shield"></span><h4>Firm admin guide</h4><p>Team, roles, services, billing and security. PDF</p></a>
   </div>
 </section>
 </main>

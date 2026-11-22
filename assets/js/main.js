@@ -9,6 +9,39 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
+  /* ---------- icons (line icons, inline SVG) ---------- */
+  const P = {
+    download: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>',
+    check: '<circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+    moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+    undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+    lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+    monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>',
+    laptop: '<path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M2 20h20l-2-4H4z"/>',
+    phone: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/>',
+    book: '<path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6.5a2.5 2.5 0 0 0 0 5H20"/><path d="M9 7h7"/>',
+    shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+    tasks: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',
+    receipt: '<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+    scale: '<path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 7a3.5 3.5 0 0 0 6 0z"/><path d="m19 7-3 7a3.5 3.5 0 0 0 6 0z"/>',
+    handshake: '<path d="M8 12 11 9a2.5 2.5 0 0 1 3.5 0L20 14.5"/><path d="M2 9l4-4 4 3"/><path d="M22 9l-4-4-4 3"/><path d="M6 13l4 4a1.5 1.5 0 0 0 2-2M10 17l1.5 1.5a1.5 1.5 0 0 0 2-2M13.5 16.5l1 1a1.5 1.5 0 0 0 2-2"/>',
+    spark: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7z"/>',
+    chart: '<path d="M3 3v18h18"/><path d="M8 16v-5M12 16V8M16 16v-3M20 16V6"/>',
+    server: '<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/>',
+    note: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>',
+    building: '<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10 21v-3h4v3"/>',
+    calendar: '<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>',
+    flag: '<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  };
+  const svg = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n] || ''}</svg>`;
+  const paintIcons = (root = document) => $$('[data-i]', root).forEach(el => { el.innerHTML = svg(el.dataset.i); });
+
   /* ---------- data ---------- */
   const SCREENS = [
     ['02-dashboard', 'Dashboard', 'Your firm at a glance — My day, workload, collections and compliance.'],
@@ -30,16 +63,16 @@
     ['08-audit', 'Audit log'], ['09-security', 'Security'], ['10-subscription', 'Subscription'],
   ];
   const MODULES = [
-    ['👥', 'Clients & documents', 'GSTIN/PAN validation, client groups, encrypted personal data, versioned documents, credential vault + browser extension for portal logins.'],
-    ['✅', 'Tasks & compliance', 'Service catalogue, tasks auto-created from rule packs, checklists and review, UDIN gate on audit tasks, due-date extensions.'],
-    ['🧾', 'Billing & collections', 'GST invoices (CGST/SGST/IGST), credit/debit notes, receipts with TDS, ageing, reminders, payment links, Tally XML.'],
-    ['⏱️', 'Time & HR', 'Timers, timesheets, cost rates, job P&L, capacity, attendance by location, leave ledger, expenses.'],
-    ['💬', 'Communication', 'Email, WhatsApp, SMS respecting consent and quiet hours; broadcasts, timeline, team chat, ICS calendar, booking pages.'],
-    ['⚖️', 'Practice', 'Notices & hearings, audit programmes and sign-offs, PBC lists, UDIN, DSC register, licences, e-signature.'],
-    ['🤝', 'Client portal & CRM', 'OTP login, upload/answer/pay; leads pipeline, versioned proposals, online acceptance, conversion.'],
-    ['🤖', 'Automation & AI', 'Trigger → conditions → actions, prebuilt agents, dry runs. AI off by default, redacts personal data, human approves.'],
-    ['📊', 'Reports', 'Catalogue + builder, dashboards, drill-down, CSV/XLSX/PDF, schedules, plain-language questions.'],
-    ['🛡️', 'Platform', 'Super-admin console, plans and seats, consent-based support access, DPDP tooling, API keys, signed webhooks.'],
+    ['users', 'Clients & documents', 'GSTIN/PAN validation, client groups, encrypted personal data, versioned documents, credential vault + browser extension for portal logins.'],
+    ['tasks', 'Tasks & compliance', 'Service catalogue, tasks auto-created from rule packs, checklists and review, UDIN gate on audit tasks, due-date extensions.'],
+    ['receipt', 'Billing & collections', 'GST invoices (CGST/SGST/IGST), credit/debit notes, receipts with TDS, ageing, reminders, payment links, Tally XML.'],
+    ['clock', 'Time & HR', 'Timers, timesheets, cost rates, job P&L, capacity, attendance by location, leave ledger, expenses.'],
+    ['chat', 'Communication', 'Email, WhatsApp, SMS respecting consent and quiet hours; broadcasts, timeline, team chat, ICS calendar, booking pages.'],
+    ['scale', 'Practice', 'Notices & hearings, audit programmes and sign-offs, PBC lists, UDIN, DSC register, licences, e-signature.'],
+    ['handshake', 'Client portal & CRM', 'OTP login, upload/answer/pay; leads pipeline, versioned proposals, online acceptance, conversion.'],
+    ['spark', 'Automation & AI', 'Trigger → conditions → actions, prebuilt agents, dry runs. AI off by default, redacts personal data, human approves.'],
+    ['chart', 'Reports', 'Catalogue + builder, dashboards, drill-down, CSV/XLSX/PDF, schedules, plain-language questions.'],
+    ['server', 'Platform', 'Super-admin console, plans and seats, consent-based support access, DPDP tooling, API keys, signed webhooks.'],
   ];
 
   /* ---------- render lists ---------- */
@@ -55,7 +88,9 @@
   $('#adminStrip').innerHTML = ADMIN.map(([f, n]) =>
     `<figure><img src="assets/img/admin/${f}.jpg" alt="${n}" loading="lazy"><figcaption>${n}</figcaption></figure>`).join('');
   $('#modCards').innerHTML = MODULES.map(([ic, t, d]) =>
-    `<div class="card reveal"><div class="ic">${ic}</div><h4>${t}</h4><p>${d}</p></div>`).join('');
+    `<div class="card reveal"><div class="ic">${svg(ic)}</div><h4>${t}</h4><p>${d}</p></div>`).join('');
+
+  paintIcons();
 
   /* ---------- tour autoplay ---------- */
   let cur = 0, timer;
@@ -109,19 +144,19 @@
   function renderChips(text) {
     const p = parse(text);
     const list = [];
-    if (p.title.length) list.push(['title', '📝 ' + p.title.join(' ')]);
-    if (p.client) list.push(['client', '🏢 ' + p.client]);
-    if (p.date) list.push(['date', '📅 ' + p.date]);
-    if (p.pri) list.push(['pri', '🚩 ' + p.pri]);
-    if (p.user) list.push(['user', '👤 ' + p.user]);
+    if (p.title.length) list.push(['title', p.title.join(' '), 'note']);
+    if (p.client) list.push(['client', p.client, 'building']);
+    if (p.date) list.push(['date', p.date, 'calendar']);
+    if (p.pri) list.push(['pri', p.pri, 'flag']);
+    if (p.user) list.push(['user', p.user, 'user']);
     const key = list.map(c => c.join()).join('|');
     if (chips.dataset.key === key) return;
     chips.dataset.key = key;
-    chips.innerHTML = list.map(([c, t]) => `<span class="chip ${c}">${esc(t)}</span>`).join('');
+    chips.innerHTML = list.map(([c, t, i]) => `<span class="chip ${c}">${svg(i)}${esc(t)}</span>`).join('');
   }
   function caretEnd(el) { const r = document.createRange(); r.selectNodeContents(el); r.collapse(false); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
   qa.addEventListener('input', () => { stopTyping(); const t = qa.textContent; qa.innerHTML = highlight(t); caretEnd(qa); renderChips(t); });
-  qa.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); qa.textContent = ''; chips.innerHTML = '<span class="chip title">✓ Task saved — type the next one</span>'; chips.dataset.key = ''; } });
+  qa.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); qa.textContent = ''; chips.innerHTML = `<span class="chip title">${svg('check')}Task saved — type the next one</span>`; chips.dataset.key = ''; } });
   let typeTimer;
   function stopTyping() { clearTimeout(typeTimer); qa.classList.remove('typing'); }
   function typeOut(str) {
@@ -230,9 +265,9 @@
   /* ---------- OS detection ---------- */
   const ua = navigator.userAgent;
   const os = /Android/i.test(ua) ? 'android' : /Win/i.test(navigator.platform || ua) ? 'windows' : /Mac/i.test(navigator.platform || ua) && !/iPhone|iPad/.test(ua) ? 'mac' : /iPhone|iPad/.test(ua) ? 'web' : 'web';
-  const OS_LABEL = { windows: ['🪟', 'Download for Windows'], mac: ['🍎', 'Download for macOS'], android: ['🤖', 'Download for Android'], web: ['🌐', 'Open Worko'] };
+  const OS_LABEL = { windows: ['monitor', 'Download for Windows'], mac: ['laptop', 'Download for macOS'], android: ['phone', 'Download for Android'], web: ['globe', 'Open Worko'] };
   $(`.dl[data-os="${os}"]`)?.classList.add('mine');
-  $('#heroDownload .os-icon').textContent = OS_LABEL[os][0];
+  $('#heroDownload .os-icon').innerHTML = svg(OS_LABEL[os][0]);
   $('#heroDownload .label').textContent = OS_LABEL[os][1];
 
   /* ---------- releases ---------- */
@@ -258,7 +293,7 @@
     const relUrl = found ? found.rel.html_url : `https://github.com/${RELEASE_REPOS[0]}/releases`;
     $('#allReleases').href = found ? `https://github.com/${found.repo}/releases` : relUrl;
     if (!found) {
-      info.innerHTML = '⚠️ Couldn’t reach the release feed — opening the releases page instead.';
+      info.innerHTML = svg('info') + ' Couldn’t reach the release feed — opening the releases page instead.';
       $$('[data-asset]').forEach(a => { a.href = relUrl; a.target = '_blank'; });
       if (os !== 'web') $('#heroDownload').href = '#download';
       return;
